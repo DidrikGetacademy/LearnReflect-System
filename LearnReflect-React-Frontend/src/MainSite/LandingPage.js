@@ -17,7 +17,7 @@ function LandingPage() {
     <ul>
     <li><Link to='/Homepage'>LearnReflect</Link></li>
       <li><Link to='/ShopPage' >Shop</Link></li>
-      <li><Link to='/Inspire'>Inspire</Link></li>
+      <li><Link to='/AIUpscalePage'>LearnReflect AI</Link></li>
       <li><Link to='/Contact'>Contact</Link></li>
     </ul>
     </div>

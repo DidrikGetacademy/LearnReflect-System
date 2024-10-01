@@ -39,6 +39,9 @@
     width: 120px; /* Fast bredde for hvert listeelement */
     position: relative;
   }
+  .navbar li {
+    display: flex;
+  }
   
   .navbar ul li a {
     text-decoration: none;
