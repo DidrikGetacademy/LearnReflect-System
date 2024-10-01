@@ -1,0 +1,516 @@
+
+h1 {
+  text-shadow: 2px 2px 4px rgb(13, 216, 189); /* Adjust the shadow effect */
+  color: white;
+  text-align: center;
+  font-size: xx-large;
+}
+h2 {
+  text-shadow: 2px 2px 4px rgb(13, 216, 189); /* Adjust the shadow effect */
+  color: white;
+  text-align: center;
+  font-size: xx-large;
+}
+h3 {
+  text-shadow: 2px 2px 4px rgb(13, 216, 189); /* Adjust the shadow effect */
+  color: white;
+  text-align: center;
+  font-size: xx-large;
+}
+h4 {
+  text-shadow: 2px 2px 4px rgb(13, 216, 189); /* Adjust the shadow effect */
+color: rgb(22, 189, 77);
+  text-align: center;
+  font-size: large;
+}
+h5{
+height: 150px;
+width: 150px;
+display: flex;
+text-align: center;
+position: relative;
+left: 9vh;
+
+}
+
+
+.selectsize {
+  bottom: -25px;
+  left: 50px;
+  position: relative;
+  padding: 5px 10px; /* Adjust padding as needed */
+  background-image: linear-gradient(180deg, #6e1717, #0c09df);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+.selectsize:hover {
+  background-color: #0056b3; /* Example hover background color */
+}
+
+
+
+
+.about-text{
+font-size:medium;
+line-height: 1.5;
+margin-top: 48%;
+color: white;
+padding-bottom: 1%;
+border-radius: .25rem;
+padding: 10px;
+
+}
+.ErrorLabel{
+color: white;
+font-size: 1em;
+font-style: initial;
+}
+.QuoteText{
+font-size: x-small;
+font-style: italic;
+text-align: justify;
+
+padding: 10px;
+margin: 4px;
+border-radius: 10px;
+box-shadow: 7px 7px 10px rgba(13, 216, 189, .5); /* Add a shadow to the card */
+}
+p{
+  font-size: large;
+  font-style: italic;
+  text-align: center;
+  line-height: 3; /* Adjust this value to increase or decrease the space between lines */
+  bottom:5vh;
+  position: relative;
+  text-shadow: 0 0 6px #06af22, 0 0 5px #0059ff, 0 0 4px #0447c5; /* Adjust the color and size of the glow */
+  animation: glowing 2s infinite; /* Adjust animation duration as needed */
+
+}
+p > :not(:last-child) {
+  margin-bottom: 3em; /* Adjust this value to increase or decrease the space between lines */
+}
+
+
+.menu-icon:hover {
+  transform: scale(1.1); /* Scale up the icon on hover */
+}
+
+
+img {
+  width: 35px;
+  margin-left: 5px;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Tillat flex-elementer å bryte til neste rad */
+}
+
+.social-icon {
+  margin: 10px; /* Add margin for spacing between icons */
+    margin: 10px; /* Legg til mellomrom mellom ikonene */
+  max-width: 100%; /* Sørg for at bildene ikke strekker seg utenfor containeren */
+  
+}
+
+@media only screen and (min-width: 768px) {
+  .social-icon {
+    width: 115px; /* Adjust width for larger screens */
+    height: 75px;
+    flex: 0 0 calc(33.33% - 20px); /* Adjust width for 3 icons in a row */
+    margin: 0 10px; /* Adjust margin for space between icons */
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .social-icon {
+    width: 120px; /* Adjust width for even larger screens */
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .social-icon {
+    flex: 0 0 calc(20% - 40px); /* Beregn bredden basert på 20% av containerens bredde */
+  }
+}
+
+body {
+background-color: white;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  text-shadow: red;
+  color: white;
+  text-align: center;
+  flex-wrap: wrap;
+  display: flexbox;
+}
+
+.container {
+
+
+  justify-content: center;
+
+}
+
+:root {
+  --hue: 190deg;
+  --sat: 50%;
+  --blur: 0px;
+}
+
+#app div {
+  --hue2: calc(var(--hue) + 60deg);
+  --sat2: calc(var(--sat) + 10%);
+  --clr: hsl(var(--hue) var(--sat) 90%);
+  --clr2: hsl(var(--hue2) var(--sat2) 85%);
+  --text: hsla(var(--hue), 70%, 10%, 0.9);
+  --gradoffset: 0vw; /* Adjusted for smaller screens */
+  --gradgap: 0vw; /* Adjusted for smaller screens */
+}
+
+#app .custom {
+  --hue: 30deg;
+  --sat: 50%;
+  --hue2: 5deg;
+  --sat2: 80%;
+}
+.button-container {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  top: 6vh;
+}
+/*
+button {
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  background-color: var(--clr);
+  background-image: linear-gradient(180deg, #6e1717, #0c09df);
+  color: white;
+  background-repeat: no-repeat;
+  background-position: center var(--gradoffset);
+  background-size: 100% 200%;
+  border-radius: 2em;
+  border: none;
+  box-shadow: 0 -0.5em 0.5em transparent, 0 0.5em 0.5em transparent,
+    0 0.25em 0.3em -0.2em hsla(var(--hue), var(--sat), 50%, 0.46),
+    0 0.25em 0.75em hsla(var(--hue), calc(var(--sat) - 10%), 40%, 0.3);
+  position: relative;
+  transition: all 0.5s ease;
+  outline: none;
+  &::before,
+  &::after {
+    content: "";
+    inset: 0;
+    position: absolute;
+    border-radius: 5em;
+  }
+
+  &:hover {
+    transform: scale(0.95);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}*/
+a {
+  display: inline-block;
+  width: 50px;
+  text-decoration: none;
+}
+
+@keyframes fadeInUp {
+  10% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(15);
+  }
+}
+
+
+
+ul {
+  justify-content: center;
+  position: relative;
+  height: 25px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 30vh;
+right: 0px;
+  display: inline-block;
+  z-index: 1000;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: calc(100% ); /* Position the dropdown below the icon */
+  right: 0; /* Align the dropdown to the right */
+  background-color: #111213;
+  width: auto; /* Let the width adjust to content */
+  max-width: 200px; /* Set a maximum width for the dropdown */
+  box-shadow: 0 7px 13px 0 #1bd4bb;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-end; /* Align items to the right */
+  animation: slideRight 0.5s forwards; /* Use slideRight animation */
+}
+.size {
+  padding: 9px;
+  border: 1px solid light;
+  font-size: 0.7em;
+  text-align: center;
+  &:hover{
+    background: white;
+    color: white;
+    transition: all .4s ease-in-out;
+  }
+}
+
+
+
+
+
+.dropdown-content a {
+  color: white;
+  padding: 5px 16px;
+  position: relative;
+  text-decoration: none;
+  display:flex;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.menu-icon {
+  width: 35px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+
+
+@keyframes slideRight {
+  0% {
+    right: -200px; /* Start off-screen to the right */
+  }
+  100% {
+    right: 0; /* End position */
+  }
+}
+
+
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  position: relative;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
+
+a {
+  color: white;
+}
+.logincontainer {
+  position: relative;
+  display: flex;
+  padding: 5px 10px; /* Adjust padding as needed */
+  background-image: linear-gradient(180deg, #6e1717, #0c09df);
+  top: 18vh;
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  border-radius: 15%;
+  width: 250px;
+  height: 350px;
+}
+
+.loginform {
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+}
+
+.loginform input,
+.loginform button {
+  margin-bottom: 20px; /* Adjust as needed */
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.LoginButton{
+width:100px;
+justify-content: center;
+align-items: center;
+text-align: center;
+font-size: 0.95em;
+}
+
+input{
+text-align: center;
+font-style: italic;
+border-radius: 20px;
+}
+
+
+.AddToCart:hover {
+  background-color: #0056b3; /* Example hover background color */
+}
+
+
+  
+  
+  .bio-heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .LiFuture {
+    color: hsl(226, 91%, 33%);
+    text-shadow: 2px 2px 4px rgb(18, 9, 141);
+    line-height: 1.6;
+    font-style: italic;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bio-text {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #0ba3a3; /* Changed text color */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bio-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+
+  
+  .bio-link:hover {
+    text-decoration: underline;
+  }
+
+
+
+  .scroll-container {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+    max-width: 350px;
+    height: 60vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    top: 16.8vh;
+    position: relative;
+    z-index: 3;
+  }
+  
+
+
+
+  .scroll-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 95%;
+    font-size: 1em;
+    color: white;
+    z-index: 3;
+    opacity: 0;
+    animation: fadeInUp 2s ease forwards;
+    position: relative;
+  }
+  
+
+
+
+
+
+
+
+
+
+  .scroll-page .selectsize {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+
+
+
+
+  .scroll-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+  }
+
+  
+
+
+  .scroll-controls button {
+    margin: 0 0px; /* Adjust the margin value to decrease or increase spacing */
+    width: 110px;
+  }
+  
+
+
+
+  .button-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; 
+    top:20px;
+  }
+ 
+
+ 

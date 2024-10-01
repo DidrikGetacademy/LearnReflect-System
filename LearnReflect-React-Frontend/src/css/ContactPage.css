@@ -1,0 +1,50 @@
+
+.contact-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Form-Container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 50vh;
+}
+
+
+.LR-Logo{
+    height: 75px;
+    width:75px;
+    border-radius: 60vh;
+}
+
+
+.RequestMessage{
+    width: 250px;
+    height: 250px;
+    background-color: black;
+}
+
+.dropdownContact{
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-Contact {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 50vh; /* Set width to 40% */
+  height: 40vh; /* Set height to 15% */
+  top: calc(100% + 18px); /* Place the dropdown below the container with some spacing */
+  left: 0; /* Align with the left side of the container */
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: start;
+  overflow: hidden;
+  border: 1.4px solid whitesmoke;
+}
