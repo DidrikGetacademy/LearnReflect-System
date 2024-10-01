@@ -1,0 +1,60 @@
+<<<<<<< HEAD
+﻿# Ignore the virtual environment directory
+Python-Backend-Flask/venv/
+
+# Ignore all .bin files
+*.bin
+
+# Ignore specific large files (update the path accordingly)
+# path/to/large-file.bin
+
+# Ignore the fine_tuned_model directory
+Python-Backend-Flask/ChatbotAI/fine_tuned_model/
+
+# Ignore the separated folder in AudioEnhancer
+Python-Backend-Flask/AudioEnchancerAI/separated/
+
+# Ignore the remote folder in AudioEnhancer
+Python-Backend-Flask/AudioEnchancerAI/remote/
+
+# Ignore the AL-onnx folder (relative path)
+Python-Backend-Flask/AI-Video-Enchancer/AI-onnx/
+
+# Ignore the Assets folder
+Python-Backend-Flask/AI-Video-Enchancer/Assets/
+# Ignore Python virtual environments
+Python-Backend-Flask/venv/
+# Ignore specific directories for AI models and assets
+Python-Backend-Flask/ChatbotAI/fine_tuned_model/
+Python-Backend-Flask/AudioEnchancerAI/separated/
+Python-Backend-Flask/AudioEnchancerAI/remote/
+Python-Backend-Flask/AI-Video-Enchancer/AI-onnx/
+Python-Backend-Flask/AI-Video-Enchancer/Assets/
+=======
+﻿Backend-Express/.env
+Python-Backend-Flask/ChatbotAI/fine_tuned_model/checkpoint-3/model.safetensors
+Python-Backend-Flask/ChatbotAI/fine_tuned_model/checkpoint-3/optimizer.pt
+
+
+# Ignore environment variables
+Backend-Express/.env
+
+# Ignore virtual environment directory
+Python-Backend-Flask/venv/
+
+# Ignore specific model files
+Python-Backend-Flask/ChatbotAI/fine_tuned_model/checkpoint-3/model.safetensors
+Python-Backend-Flask/ChatbotAI/fine_tuned_model/model.safetensors
+Python-Backend-Flask/venv/Lib/site-packages/clang/native/libclang.dll
+Python-Backend-Flask/venv/Lib/site-packages/tensorflow/python/_pywrap_tensorflow_internal.pyd
+Python-Backend-Flask/venv/Lib/site-packages/torch/lib/dnnl.lib
+Python-Backend-Flask/venv/Lib/site-packages/torch/lib/torch_cpu.dll
+
+
+# Ignore specific model files
+Python-Backend-Flask/ChatbotAI/fine_tuned_model/checkpoint-3/model.safetensors
+Python-Backend-Flask/ChatbotAI/fine_tuned_model/model.safetensors
+Python-Backend-Flask/venv/
+Python-Backend-Flask/ChatbotAI/fine_tuned_model/
+Python-Backend-Flask/venv/
+>>>>>>> c22682035315139a831270f0c5923e78bc6ad6cd
