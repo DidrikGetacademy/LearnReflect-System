@@ -9,7 +9,7 @@ from transformers import (
 from flask import Blueprint, request, jsonify
 import logging
 
-# Setup logging
+# logging oppsett
 logging.basicConfig(
     filename="./Route.log",
     level=logging.INFO,
@@ -18,14 +18,14 @@ logging.basicConfig(
 
 chatbot = Blueprint("chatbot", __name__)
 
-# Load the fine-tuned model and tokenizer
+# laster opp modell og tokenizer
 model_path = r"C:\Users\Didrik\OneDrive\Skrivebord\LearnReflect Project\Python-Backend-Flask\ChatbotAI\fine_tuned_model"
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path)
 
 
-# Define Custom Dataset Class
-# Torch.utils.data.dataset is pytorch class that allows you to create a dataset that can be used for training and evaluation.
+# Definerer et custom dataset
+# Torch.utils.data.dataset er en pytorch klasse som tillater at man lager et dataset som kan bli brukt for trening og evaluering.  
 class CustomDataset(torch.utils.data.Dataset):
     def __init__(self, encodings):
         self.encodings = encodings
@@ -129,10 +129,10 @@ def update_model_immediately(response_text, feedback_score):
         # forward pass to get the logits
         outputs = model(**inputs, labels=inputs["inputs_ids"])
 
-        # compute the loss as usual
+        #komputer tap som vanlig
         loss = outputs.loss
 
-        # penalty factor to the loss (increase the loss for bad responses)
+        #negativ faktor for tap (juster tap høyere for dårlig respons)
         penalty_factor = 1.5
         penalized_loss = loss * penalty_factor
 
@@ -218,7 +218,7 @@ def feedback():
 
     save_feedback(response_text, feedback_score)  # Save feedback
 
-    # Update model based on feedback
+    # oppdaterer modell basert på tilbakemeldinger.
     update_model_immediately(response_text, feedback_score)
 
-    return jsonify({"status": "success"})  # Return success message to frontend
+    return jsonify({"status": "success"})  # returnerer suksessmelding til frontend
