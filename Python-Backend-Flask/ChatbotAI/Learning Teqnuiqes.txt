@@ -1,0 +1,6 @@
+Advanced Deep Learning Techniques
+------------------------------------------------------
+-gradient clipping,
+-learning rate schedules
+-curriculum learning.
+-PPO 

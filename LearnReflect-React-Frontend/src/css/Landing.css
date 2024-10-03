@@ -1,191 +1,142 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
-  
-  .banner {
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75));
-    background-size: cover;
-    background-position: center;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .navbar {
-    width: 60%;
-    margin: auto;
-    padding: 40px 0;
-    display: flex;
-    justify-content: center;
-    display: flex;
-    position: relative;
-    left: 100px;
-    align-items: center;
-    justify-content: space-between; /* Endret space-; til space-between; */
-    
-  }
-  
-  .navbar ul {
-    display: flex;
-    list-style: none;
-  }
-  
-  .navbar ul li {
-    margin: 0 50px; /* Justert margin */
-    width: 120px; /* Fast bredde for hvert listeelement */
-    position: relative;
-  }
-  .navbar li {
-    display: flex;
-  }
-  
-  .navbar ul li a {
-    text-decoration: none;
-    color: #fff;
-    text-transform: uppercase;
-    font-style: oblique;
-    text-shadow: 0 0 10px rgba(17, 167, 204, 0.5); /* Adjust the shadow color and blur radius */
-    animation: forwards;
-  }
-    .navbar ul li::after {
-        content: '';
-        height: 3px;
-        background: #009688;
-        position: absolute;
-        width: 0;
-        bottom: -5px; /* Adjust this value to position the bar as needed */
-        left: 80%; /* Adjust the left position */
-        transform: translateX(-50%);
-        width: calc(100% - 0px); /* Adjusted width to ensure it's centered */
-        content: '';
-        height: 3px;
-        background: #009688;
-        position: absolute;
-        width: 0;
-        left: 80%;
-        transition: 0.5s;
-        transition: 0.5s;
-    }
-    .navbar ul li:hover::after {
-     width: 100%;    
-    }
-    
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
 
-    .content {
-    width: 100%;
-    position:absolute;
-    top: 60%;
-    transform: translateY(-50%);
-    text-align: center;
-    color: #fff;
-    }
-    .content h1 {
-    font-size: 70px;
-    padding-bottom:75px;;
-    }
-    .content p {
-  margin: 20px auto;
-  font-weight: 100;
-  top: 150px;
-  line-height: 25px;
-    }
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
 
-    .Background{
-    height:50%;
-    width: 300px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    }
-
-    .Lion {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      display: flex;
-      height: 50%; /* Endret fra 99.9% for å dekke hele høyden */
-      width: 200px;
-      opacity: 0.5;
-      border: 1px solid black; /* Legg til en svart kant */
-      border-bottom-left-radius: 4px;
-      border-top-left-radius: 4px;
-      background:
- linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 80%),
- linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
-
-  }
-  
-    .Lion2 {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      transform: scaleX(-1); /* Flip the image horizontally */
-      display: flex;
-      height: 50%; /* Endret fra 99.9% for å dekke hele høyden */
-      width: 200px;
-      opacity: 0.5;
-      border: 1px solid black; /* Legg til en svart kant */
-      border-bottom-left-radius: 4px;
-      border-top-left-radius: 4px;
-      background:
- linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 80%),
- linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
-  }
-  
-  .TrainerImg{
-  height:75vh;
-  width:50vh;
-  z-index: 3;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  }
-
-  .girlimg{
-  height:60  fvfv vh;
-  width:75vh;
-  z-index: 3;
-  position: absolute;
-  left: -250px;
-   bottom: 0;
-  }
-
-  .LearnReflectImg{
-  height: 20vh;
-  width: 15vh;
-  position: absolute;
-  bottom: 0;
-  
-  }
-
-
-  /* Add these styles to your existing CSS */
-.banner2 {
+.Container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  top: 60vh;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
   position: relative;
 }
 
-.LearnReflectImg {
-  max-width: 100%; /* Ensure image doesn't exceed viewport width */
-  width: 200px;
+.Background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
-/* Media query for responsiveness */
+.TrainerImg {
+width: auto; /* Ensures the image never overflows its container */
+  height: 100%;     /* Maintains aspect ratio */
+  z-index: 2;
+  right: 0;
+  position: fixed;
+}
+
+.LionImg{
+  width: auto;
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  height: 100%;
+}
+
+/* Media Query for smaller devices like iPhones */
 @media (max-width: 768px) {
-  .banner {
-    padding: 0 20px; /* Adjust padding for smaller screens */
+  .TrainerImg {
+    width: 50%;   /* Adjust the width percentage as needed */
+    height: auto;
+    right: 10px;  /* Optional: Adjust the positioning if necessary */
+  }
+}
+
+@media (max-width: 480px) {
+  .TrainerImg {
+    width: 80%;   /* On very small devices like iPhone SE, etc. */
+    height: auto;
+    right: 5px;   /* Adjust positioning to avoid image overflow */
+  }
+}
+/* Media Query for smaller devices like iPhones */
+@media (max-width: 768px) {
+  .LionImg {
+    width: 50%;   /* Adjust the width percentage as needed */
+    height: auto;
+    right: 10px;  /* Optional: Adjust the positioning if necessary */
+  }
+}
+
+@media (max-width: 480px) {
+  .LionImg {
+    width: 80%;   /* On very small devices like iPhone SE, etc. */
+    height: auto;
+    right: 5px;   /* Adjust positioning to avoid image overflow */
   }
 }
 
 
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 0;
+  z-index: 10;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-style: oblique;
+  text-shadow: 0 0 10px rgba(17, 167, 204, 0.5);
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #009688;
+}
+
+.navbar ul li::after {
+  content: '';
+  height: 3px;
+  background: #009688;
+  position: absolute;
+  width: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
+}
+
+.navbar ul li:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+}
