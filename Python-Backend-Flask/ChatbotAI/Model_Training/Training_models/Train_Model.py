@@ -1,4 +1,5 @@
 import os 
+import torch
 from transformers import (
     GPT2Tokenizer,
     GPT2LMHeadModel,
@@ -9,7 +10,7 @@ from transformers import (
 )
 from datasets import load_dataset
 
-model_path = r"C:\Program Files (x86)\LearnReflect Project\LearnReflect Project\Python-Backend-Flask\ChatbotAI\gpt2-medium-model"
+model_path = r"C:\Users\Didrik\OneDrive\Skrivebord\kopi\LearnReflect Project\LearnReflect Project\Python-Backend-Flask\ChatbotAI\gpt2-medium-model"
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path)
 tokenizer.add_special_tokens({'pad_token': '[PAD]'})
@@ -28,14 +29,18 @@ dialogue_dataset = dataset.map(concatenate_dialogues, batched=True, remove_colum
 
 
 def tokenize_function(examples):
-    return tokenizer(examples['text'], truncation=True, padding='max_length', max_length=56)
+    return tokenizer(examples['text'], truncation=True, padding='max_length', max_length=128)
 
 
 tokenized_datasets = dialogue_dataset.map(tokenize_function, batched=True)
 tokenized_datasets.set_format(type='torch', columns=['input_ids', 'attention_mask'])
+small_train_dataset = tokenized_datasets['train'].shuffle(seed=42).select([i for i in range(30)])  # 1000 eksempler
+small_eval_dataset = tokenized_datasets['test'].shuffle(seed=42).select([i for i in range(2)])  # 200 eksempler
+print(tokenized_datasets['train'][0])
+print(tokenized_datasets['train'][0])
 print(tokenized_datasets['train'][0])
 
-log_dir = r"C:\Program Files (x86)\LearnReflect Project\LearnReflect Project\Python-Backend-Flask\ChatbotAI\Model_Training\Training_logs"
+log_dir = r"C:\Users\Didrik\OneDrive\Skrivebord\kopi\LearnReflect Project\LearnReflect Project\Python-Backend-Flask\ChatbotAI\Model_Training\Training_logs"
 os.makedirs(log_dir, exist_ok=True)  
 log_file_path = os.path.join(log_dir, "training_log.txt")
 
@@ -43,27 +48,35 @@ training_args = TrainingArguments(
     output_dir=model_path,
     eval_strategy='epoch',
     learning_rate=1e-5,
-    per_device_train_batch_size=8,
-    num_train_epochs=5,
-    weight_decay=0.02,
+    per_device_train_batch_size=2,
+    num_train_epochs=2,
+    weight_decay=0.01,
     logging_dir=log_dir,
-    logging_steps=5,
+    logging_steps=2,
     logging_first_step=True,
 )
 
 train_loss_list = []
 eval_loss_list = []
 epochs_list = []
+avg_train_loss = []
 
 
-def Write_TrainingData(train_loss_list, eval_loss_list, epochs_list): 
-    data_dir = r'C:\Program Files (x86)\LearnReflect Project\LearnReflect Project\Python-Backend-Flask\ChatbotAI\Model_Training\Training_data'
+def Write_TrainingData(avg_train_loss, eval_loss_list, epochs_list): 
+    data_dir = r'C:\Users\Didrik\OneDrive\Skrivebord\kopi\LearnReflect Project\LearnReflect Project\Python-Backend-Flask\ChatbotAI\Model_Training\Training_data'
     os.makedirs(data_dir, exist_ok=True)
-    with open(os.path.join(data_dir, 'Diagram_eval_trainloss.txt'), 'a') as file:
-        train_loss_str = ", ".join(map(str, train_loss_list))
-        eval_loss_str = ", ".join(map(str, eval_loss_list))
-        Epoch_str = ", ".join(map(str, epochs_list))
-        lines = [f"{train_loss_str}\n", f"{eval_loss_str}\n", f"{Epoch_str}\n"]
+    
+    
+    with open(os.path.join(data_dir, 'Diagram_eval_trainloss.txt'), 'w') as file:
+        
+        train_loss_str = ", ".join(map(str,avg_train_loss))  # Konverter float til string
+        
+        eval_loss_str = ", ".join(map(str, eval_loss_list))  # Convert eval_loss_list items to strings
+        
+        Epoch_str = ", ".join(map(str, epochs_list))  # Convert epochs_list items to strings
+        
+        lines = [f"Loss: {train_loss_str}\n", f"Eval-loss: {eval_loss_str}\n", f"epochs: {Epoch_str}\n"]
+        
         file.writelines(lines)
 
 
@@ -87,6 +100,8 @@ def save_checkpoint(trainer, checkpoint_num, train_loss, eval_loss):
 
 
 data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
+
+
 class CustomCallback(TrainerCallback): 
 
     def __init__(self):
@@ -101,8 +116,10 @@ class CustomCallback(TrainerCallback):
 trainer = Trainer(
     model=model,
     args=training_args,
-    train_dataset=tokenized_datasets['train'],
-    eval_dataset=tokenized_datasets['test'],
+    #train_dataset=tokenized_datasets['train'],
+    #eval_dataset=tokenized_datasets['test'],
+    train_dataset=small_train_dataset,
+    eval_dataset=small_eval_dataset,
     data_collator=data_collator,
     callbacks=[CustomCallback()]
 
@@ -110,12 +127,15 @@ trainer = Trainer(
 
 for epoch in range(training_args.num_train_epochs):
     print(f"Epoch {epoch + 1} Training...")
+    torch.cuda.empty_cache()
     metrics = trainer.train()  
-
     train_loss = train_loss_list[-1] if train_loss_list else None
+    avg_train_loss = sum(train_loss_list) / len(train_loss_list) if train_loss_list else 0
     eval_loss = trainer.evaluate()['eval_loss']
+    stringloss = []
+    stringloss.append(str(avg_train_loss))
     adding_loss(train_loss, eval_loss, epoch + 1)  
-    Write_TrainingData(train_loss_list, eval_loss_list, epochs_list)
+    Write_TrainingData(stringloss, eval_loss_list, epochs_list)
     save_checkpoint(trainer, epoch + 1, train_loss, eval_loss)  
     print(f"Epoch {epoch + 1}: Checkpoint saved")
 
@@ -123,3 +143,5 @@ final_model_path = os.path.join(training_args.output_dir, f"final_model_epoch_{t
 trainer.save_model(final_model_path)
 tokenizer.save_pretrained(final_model_path)
 print(f"Final model and tokenizer saved to {final_model_path}")
+torch.cuda.empty_cache()
+
