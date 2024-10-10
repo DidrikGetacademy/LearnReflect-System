@@ -26,6 +26,7 @@ Python-Backend-Flask/AI-Video-Enchancer/Assets/
 Python-Backend-Flask/venv/
 # Ignore specific directories for AI models and assets
 Python-Backend-Flask/ChatbotAI/fine_tuned_model/
+Python-Backend-Flask/ChatbotAI/gpt2-medium-model/
 Python-Backend-Flask/AudioEnchancerAI/separated/
 Python-Backend-Flask/AudioEnchancerAI/remote/
 Python-Backend-Flask/AI-Video-Enchancer/AI-onnx/
@@ -49,7 +50,7 @@ Python-Backend-Flask/venv/Lib/site-packages/clang/native/libclang.dll
 Python-Backend-Flask/venv/Lib/site-packages/tensorflow/python/_pywrap_tensorflow_internal.pyd
 Python-Backend-Flask/venv/Lib/site-packages/torch/lib/dnnl.lib
 Python-Backend-Flask/venv/Lib/site-packages/torch/lib/torch_cpu.dll
-
+Python-Backend-Flask/ChatbotAI/gpt2-medium-model/
 
 # Ignore specific model files
 Python-Backend-Flask/ChatbotAI/fine_tuned_model/checkpoint-3/model.safetensors
@@ -61,3 +62,5 @@ Python-Backend-Flask/venv/
 
 
 Backend-Express\.env
+Python-Backend-Flask/ChatbotAI/gpt2-medium-model/
+Python-Backend-Flask\AI-Video-Enchancer\QualityScaler
