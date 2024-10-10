@@ -1,0 +1,7 @@
+checkpoint: 1, Train Loss: 1.0694, Eval Loss: 0.6980881094932556, epoch: 0
+checkpoint: 1, Train Loss: 1.0841, Eval Loss: 0.6873499155044556, epoch: 0
+checkpoint: 1, Train Loss: 0.9596, Eval Loss: 0.7434244751930237, epoch: 0
+checkpoint: 1, Train Loss: 0.7853, Eval Loss: 0.7362031936645508, epoch: 0
+checkpoint: 1, Train Loss: 0.7814, Eval Loss: 0.7471750378608704, epoch: 0
+checkpoint: 2, Train Loss: 0.6122, Eval Loss: 0.7749531865119934, epoch: 1
+checkpoint: 3, Train Loss: 0.5051, Eval Loss: 0.8110201358795166, epoch: 2

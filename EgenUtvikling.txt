@@ -6,9 +6,6 @@ Sette opp tilkobling med api og samtale med ChatBot. dette var implementert før
 
 
 
-
-
-
 Hva skal jeg lære denne uken?
 ---------------------------------
 Forstå og lære python/ChatModelen/traingsModelens kode.

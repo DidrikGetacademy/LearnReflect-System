@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import '../css/AiUpscalePage.css';
 function AIUpscalePage() {
   const navigate = useNavigate();
   return (
@@ -8,9 +9,9 @@ function AIUpscalePage() {
       <div className="AIupscale-Container">
         <div>
           <img alt="AudioEnchancer" />
-          <button onClick={() => navigate('/Chatbot')}>Audio Enchancer</button>
+          <button onClick={() => navigate('/AudioRender')}>Audio Enchancer</button>
           <p>
-            This is a description of the Audio Enchancer button.
+      
           </p>
         </div>
 
@@ -18,15 +19,15 @@ function AIUpscalePage() {
           <img alt="VideoEnchancer" />
           <button onClick={() => navigate('/')}>Video Enchancer</button>
           <p>
-            This is a description of the Video Enchancer button.
+       
           </p>
         </div>
 
         <div>
           <img alt="Chatbot" />
-          <button onClick={() => navigate('/')}>AI Chatbot</button>
+          <button onClick={() => navigate('/Chatbot')}>AI Chatbot</button>
           <p>
-            This is a description of the LearnReflect Chatbot button.
+      
           </p>
         </div>
       </div>

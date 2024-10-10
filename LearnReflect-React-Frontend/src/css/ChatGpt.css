@@ -1,0 +1,54 @@
+.PageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.userinputcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align items at the bottom */
+    align-items: stretch; /* Align children to take full width */
+    height: 600px; /* Height of the container */
+    width: 500px;
+    background-color: grey;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.GPTBackground {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ChatBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 0; /* Set margin to 0 for ChatBox */
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.User-P, .Chatbot-P {
+    margin: 5px 0;
+    text-align: left;
+    font-size: 14px; /* Set font size to a smaller value */
+    word-wrap: break-word; /* Ensure long words wrap */
+    overflow-wrap: break-word; /* Ensure long words wrap */
+}
+
+.Feedback-Container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}

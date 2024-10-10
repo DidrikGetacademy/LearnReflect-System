@@ -23,6 +23,8 @@ import Timer from "./Components/TimerComponent.js";
 import Inspire from "./Inspire/Inspire.js";
 import RegistrationForm from "./User/UserRegistration.js";
 import Chatbot from "./AI-LearnReflect/Chat/ChatbotRender.js";
+import AudioEnchancerJSX from "./AI-LearnReflect/Audio/AudioRender.js";
+import VideoEnchancerJSX from "./AI-LearnReflect/Video/VideoRender.js";
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +33,8 @@ function App() {
           <Routes>
              <Route path="/Contact" element={<Contact />} />
              <Route path="/Chatbot" element={<Chatbot />} />
+             <Route path="/AudioEnchancer" element={<AudioEnchancerJSX />} />
+             <Route path="/VideoEnchancerJSX" element={<VideoEnchancerJSX />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/Register" element={<RegistrationForm />} />
             <Route path="/" element={<LandingPage />} />
