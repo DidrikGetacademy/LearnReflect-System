@@ -19,11 +19,10 @@ logging.basicConfig(
 chatbot = Blueprint("chatbot", __name__)
 
 # laster opp modell og tokenizer
-model_path = r"C:\Program Files (x86)\LearnReflect Project\LearnReflect Project\Python-Backend-Flask\ChatbotAI\gpt2-medium-model"
+model_path = r"C:\Users\didri\Documents\GitHub\LearnReflect-System\Python-Backend-Flask\ChatbotAI\OriginalModel-Chatbot\Model"
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path)
 
-# Legg til en spesifikk padding token
 # Legg til en spesifikk padding token
 tokenizer.add_special_tokens({'pad_token': '[PAD]'})  # Legger til '[PAD]' som padding token
 
@@ -90,7 +89,7 @@ def update_model_immediately(response_text, feedback_score):
 
     # treningsarguementer parametere for hvordan treningen skal foregå, antall treningsomganger (epochs), Batch-størrelse (hvor mange treningsdata som blir behandlet samtidig) læringsrate og hvor ofte modellen skal lagres.
     training_args = TrainingArguments(
-        output_dir=r"C:\Program Files (x86)\LearnReflect Project\LearnReflect Project\Python-Backend-Flask\ChatbotAI\gpt2-medium-model",  # Modelen
+        output_dir=r"C:\Users\didri\Documents\GitHub\LearnReflect-System\Python-Backend-Flask\ChatbotAI\OriginalModel-Chatbot\Model",  # Modelen
         num_train_epochs=1,  # 1 trening om gangen.
         # NB: flere epochs kan gi bedre ytele ,men også øke risikoen for overtilpasning
         per_device_train_batch_size=1,  # 1 batch per trening, betyr at modellen trener på en datapunkt (setning eller tekstbit) om gangen.

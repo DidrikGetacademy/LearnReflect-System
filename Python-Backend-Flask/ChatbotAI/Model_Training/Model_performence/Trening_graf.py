@@ -11,7 +11,7 @@ def read_Trainingdata():
     global training_losses_object, eval_loss_object, epochs  
 
     # Path to the file
-    file_path = os.path.join(r'C:\Users\Didrik\OneDrive\Skrivebord\kopi\LearnReflect Project\LearnReflect Project\Python-Backend-Flask\ChatbotAI\Model_Training\Training_data\Diagram_eval_trainloss.txt')
+    file_path = os.path.join(r'C:\Users\didri\Desktop\kopi av learnreflect\LearnReflect-System\Python-Backend-Flask\ChatbotAI\Model_Training\Training_data\Diagram_eval_trainloss.txt')
 
     if os.path.exists(file_path):
         print(f"File found: {file_path}")
@@ -50,10 +50,13 @@ def Training_Evolve_Diagram(epochs_return, eval_losses_return, training_losses_r
     plt.plot(epochs_return, training_losses_return, label='Trenings Tap', marker='o', linestyle='--', color='blue')
     plt.plot(epochs_return, eval_losses_return, label='Evaluerings Tap', marker='x', linestyle='-', color='red')
     
-    if any(eval_loss > train_loss for eval_loss, train_loss in zip(eval_losses_return, training_losses_return)):
-         print("Advarsel: Evaluerings Tapet har overskredet Trenings Tapet i løpet av treningen!")
+    OverFitting = any(eval_loss > train_loss for eval_loss, train_loss in zip(eval_losses_return, training_losses_return))
+     
          
-         
+    if OverFitting:
+            max_epoch = epochs_return[eval_losses_return.index(max(eval_losses_return))] #markerer epoken med høyest eval tap.
+            plt.text(max_epoch, max(eval_losses_return),"Fitting oppdaget! [tren på mer varierende data], ", color='red',fontsize=12, fontweight='bold')
+
     plt.title('Trenings og Evaluerings Tap over Epoker')
     plt.xlabel('Epoker')
     plt.ylabel('Tap')
@@ -65,5 +68,5 @@ def Training_Evolve_Diagram(epochs_return, eval_losses_return, training_losses_r
     plt.show()
 
 
-#Training_Evolve_Diagram(epochs, eval_loss_object, training_losses_object)
+Training_Evolve_Diagram(epochs, eval_loss_object, training_losses_object)
 

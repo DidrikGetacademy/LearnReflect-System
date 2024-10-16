@@ -1,11 +1,3 @@
 Hvilke oppgaver i prosjektet mitt skal jeg løse denne uken?
 -------------------------------------------------------------
-AL-Business central interegation med Backend og frontend i react prosjekt.
-Sette opp tilkobling med api og samtale med ChatBot. dette var implementert før jeg slettet prosjektet mitt ved uhell men shit happends i guess.
 
-
-
-
-Hva skal jeg lære denne uken?
----------------------------------
-Forstå og lære python/ChatModelen/traingsModelens kode.

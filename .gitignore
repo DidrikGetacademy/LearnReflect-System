@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+   <<<<<<< HEAD
 ﻿# Ignore the virtual environment directory
 Python-Backend-Flask/venv/
 
@@ -62,5 +62,5 @@ Python-Backend-Flask/venv/
 
 
 Backend-Express\.env
-Python-Backend-Flask/ChatbotAI/gpt2-medium-model/
 Python-Backend-Flask\AI-Video-Enchancer\QualityScaler
+Python-Backend-Flask\ChatbotAI\Model
